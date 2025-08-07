@@ -24,28 +24,27 @@ class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
   @override
   Widget build(BuildContext context) {
-    final List<String> items = List<String>.generate(
-      50,
-      (i) => 'Item ${i + 1}',
-    );
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Chapter 6'),
         backgroundColor: Colors.indigo,
       ),
-      body: GridView.count(
-        crossAxisCount: 3, // 3 คอลัมน์
-        padding: const EdgeInsets.all(10.0),
-        mainAxisSpacing: 10.0, // ระยะห่างแนวตั้ง
-        crossAxisSpacing: 10.0, // ระยะห่างแนวนอน
-        children: List<Widget>.generate(20, (index) {
-          // สร้างไอเท็มตัวอย่าง 20 อัน
-          return Container(
-            color: Colors.teal[100 + (index % 8) * 100],
-            child: Center(child: Text('Item $index')),
-          );
-        }),
+      body: Stack(
+        alignment:
+            Alignment.center, // จัดกึ่งกลาง children ที่ไม่ได้กำหนดตำแหน่ง
+        children: <Widget>[
+          // วิดเจ็ตล่างสุด (วาดก่อน)
+          Container(width: 200, height: 200, color: Colors.blue),
+          // วิดเจ็ตกลาง
+          Container(width: 150, height: 150, color: Colors.green),
+          // วิดเจ็ตบนสุด (วาดสุดท้าย)
+          Container(width: 100, height: 100, color: Colors.red),
+          // Text ก็ถูกจัดกึ่งกลางตาม alignment เริ่มต้นด้วย
+          const Text(
+            'Layered',
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ],
       ),
     );
   }
