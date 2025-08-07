@@ -29,20 +29,106 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Chapter 6'),
         backgroundColor: Colors.indigo,
       ),
+
+      //     body: Stack(
+      //       alignment:
+      //           Alignment.center, // จัดกึ่งกลาง children ที่ไม่ได้กำหนดตำแหน่ง
+      //       children: <Widget>[
+      //   // รูปภาพพื้นหลัง
+      //   Image.network('https://picsum.photos/id/1015/300/300', fit: BoxFit.cover),
+
+      //   // Text ที่กำหนดตำแหน่งไว้มุมบนซ้าย
+      //   Positioned(
+      //     top: 10.0,
+      //     left: 10.0,
+      //     child: Container(
+      //       padding: const EdgeInsets.all(8.0),
+      //       color: Colors.black.withOpacity(0.5), // พื้นหลังกึ่งโปร่งใส
+      //       child: const Text(
+      //         'Top Left',
+      //         style: TextStyle(color: Colors.white),
+      //       ),
+      //     ),
+      //   ),
+
+      //   // Icon ที่กำหนดตำแหน่งไว้มุมล่างขวา
+      //   Positioned(
+      //     bottom: 10.0,
+      //     right: 10.0,
+      //     child: Container(
+      //        padding: const EdgeInsets.all(4.0),
+      //        decoration: BoxDecoration(
+      //          color: Colors.red,
+      //          shape: BoxShape.circle, // ทำให้เป็นป้ายวงกลม
+      //        ),
+      //        child: const Icon(Icons.notifications, color: Colors.white, size: 20),
+      //     ),
+      //   ),
+      // ],
       body: Stack(
         alignment:
             Alignment.center, // จัดกึ่งกลาง children ที่ไม่ได้กำหนดตำแหน่ง
         children: <Widget>[
-          // วิดเจ็ตล่างสุด (วาดก่อน)
-          Container(width: 200, height: 200, color: Colors.blue),
-          // วิดเจ็ตกลาง
-          Container(width: 150, height: 150, color: Colors.green),
-          // วิดเจ็ตบนสุด (วาดสุดท้าย)
-          Container(width: 100, height: 100, color: Colors.red),
-          // Text ก็ถูกจัดกึ่งกลางตาม alignment เริ่มต้นด้วย
-          const Text(
-            'Layered',
-            style: TextStyle(color: Colors.white, fontSize: 20),
+          // รูปภาพพื้นหลัง
+          Image.network(
+            'https://picsum.photos/id/1015/300/300',
+            fit: BoxFit.cover,
+          ),
+
+          // Text ที่กำหนดตำแหน่งไว้มุมบนซ้าย
+          Positioned(
+            top: 10.0,
+            left: 10.0,
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
+              color: Colors.black.withOpacity(0.5), // พื้นหลังกึ่งโปร่งใส
+              child: const Text(
+                'Top Left',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10.0,
+            right: 10.0,
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
+              color: Colors.black.withOpacity(0.5), // พื้นหลังกึ่งโปร่งใส
+              child: const Text(
+                'Top right',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+
+          // Icon ที่กำหนดตำแหน่งไว้มุมล่างขวา
+          Positioned(
+            bottom: 10.0,
+            right: 10.0,
+            child: Container(
+              padding: const EdgeInsets.all(4.0),
+              decoration: BoxDecoration(
+                color: Colors.red,
+                shape: BoxShape.circle, // ทำให้เป็นป้ายวงกลม
+              ),
+              child: const Icon(
+                Icons.notifications,
+                color: Colors.white,
+                size: 20,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 10.0,
+            left: 10.0,
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
+              color: Colors.black.withOpacity(0.5), // พื้นหลังกึ่งโปร่งใส
+              child: const Text(
+                ' bottom Left',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           ),
         ],
       ),
